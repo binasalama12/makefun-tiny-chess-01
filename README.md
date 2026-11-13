@@ -3,7 +3,7 @@
 An original chess engine in 4 KB of Python. `main.py` is the whole
 engine: an lzma + base85 payload with a two-line unpacker (the rules
 allow this format explicitly; payload and unpacker together are
-4,064 bytes). Unpacked, the engine is a single stdlib-only module:
+4,076 bytes). Unpacked, the engine is a single stdlib-only module:
 
 - 0x88 board, incremental Zobrist hashing, incremental material +
   piece-square evaluation (formula PSTs, bishop pair, king
@@ -27,6 +27,9 @@ positions, root legal-move sets match python-chess, full games
 against the kit starter and a random mover complete with every move
 legal, and local trials against the kit's real environment (the
 practice gauntlet) score in the same band as the house 4 KB baseline.
+The payload was later re-packed with a stronger lzma preset (9,
+extreme); the unpacked engine source is byte-identical, and repeat
+stub matches reproduce the original engine's games move-for-move.
 
 ## License
 
